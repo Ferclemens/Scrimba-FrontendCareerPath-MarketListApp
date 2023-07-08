@@ -7,6 +7,7 @@ document.querySelector('#app').innerHTML = `
   <img src="./cat.png">
   <input type="text" id="input-field" placeholder="Bread">
   <button id="add-button">Add to cart</button>
+  <ul id="products-list"></ul>
 </div>
 `
 app()
