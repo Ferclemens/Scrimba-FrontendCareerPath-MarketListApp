@@ -1,20 +1,23 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { DB_URL } from './env.js'
 
-export function connectDatabase() {
 
+
+export function app() {
+    //database info
     const appSettings = {
-        databaseURL: "https://realtime-database-ac7e2-default-rtdb.firebaseio.com/"
+        databaseURL: DB_URL
     }
     const app = initializeApp(appSettings)
     const database = getDatabase(app)
     const productsInDB = ref(database, 'products')
 
-    console.log(app);
-
+    //references
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
 
+    //listeners
     addButtonEl.addEventListener("click", function() {
         let inputValue = inputFieldEl.value
         push(productsInDB, inputValue)

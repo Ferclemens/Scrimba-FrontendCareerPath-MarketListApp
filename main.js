@@ -1,4 +1,4 @@
-import { connectDatabase } from './Connection'
+import { app } from './app'
 import './style.css'
 
 
@@ -9,4 +9,4 @@ document.querySelector('#app').innerHTML = `
   <button id="add-button">Add to cart</button>
 </div>
 `
-connectDatabase()
+app()
