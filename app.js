@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 import { DB_URL } from './env.js'
 
 
@@ -50,6 +50,12 @@ function appendItemToproductListEl(item) {
     let newEl = document.createElement('li')
     newEl.textContent = itemProduct
     
+    newEl.addEventListener('click', function(){
+        let productIdFromDB = ref(database, `products/${itemID}`)
+        remove(productIdFromDB)
+    })
+    
+
     productListEl.append(newEl) 
 }
 
